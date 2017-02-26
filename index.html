@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Droub Audio</title>
+    <style>
+      main-container {
+        display: flex;
+        justify-content: center;
+        /*align-items: center;*/
+        /*height: 100%;*/
+        width: 100%;
+      }
+      body {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main-container>
+      <center-container>
+      </center-container>
+    </main-container>
+    <script src="bundle.js"></script>
+    <script>
+      if (!searchParams.room) searchParams.room = 'default'
+      let elem = dropubAudio(searchParams)
+      document.querySelector('center-container').appendChild(elem)
+    </script>
+  </body>
+</html>

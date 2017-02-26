@@ -1,0 +1,42 @@
+{
+  "name": "dropub.audio",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "deploy": "now -e DROPUB_AUDIO_COUCHDB=@dropub_audio_couchdb",
+    "dev": "budo index.js:bundle.js",
+    "devsocket": "budo index.js:bundle.js & node server.js & wait",
+    "build": "browserify index.js > bundle.js"
+  },
+  "keywords": [],
+  "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "bel": "^4.5.1",
+    "blur-modal": "^0.3.0",
+    "corsify": "^2.1.0",
+    "couch": "^0.5.0",
+    "element-class": "^0.2.2",
+    "emojione": "^2.2.7",
+    "follow": "^0.12.1",
+    "funky": "^2.3.0",
+    "getusermedia": "^2.0.1",
+    "hash.js": "^1.0.3",
+    "jsonstream2": "^1.1.1",
+    "media-recorder-stream": "^2.1.1",
+    "methodman": "^0.2.0",
+    "moment": "^2.17.1",
+    "once": "^1.4.0",
+    "response": "^0.18.0",
+    "sodi": "^0.3.0",
+    "sodi-authority": "^1.1.0",
+    "waudio": "^2.6.0",
+    "websocket-stream": "^3.3.3"
+  },
+  "devDependencies": {
+    "browserify": "^14.1.0",
+    "budo": "^9.4.7"
+  }
+}
