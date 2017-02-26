@@ -31,7 +31,7 @@
     "once": "^1.4.0",
     "response": "^0.18.0",
     "sodi": "^0.3.0",
-    "sodi-authority": "^1.1.0",
+    "sodi-authority": "^1.2.0",
     "waudio": "^2.6.0",
     "websocket-stream": "^3.3.3"
   },

@@ -10,7 +10,7 @@ const websocket = require('websocket-stream')
 const methodman = require('methodman')
 const blurModal = require('blur-modal')
 const elementClass = require('element-class')
-const login = require('../../sodi-authority/component')
+const login = require('sodi-authority/component')
 const hash = require('hash.js')
 
 const player = require('./dropub-player')
