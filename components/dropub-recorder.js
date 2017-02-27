@@ -8,7 +8,6 @@ const mediaOpts = {audio: true, video: false, interval: 1000}
 const initRecorder = (elem, opts, cb) => {
   let stream = mediaRecorder(opts.media, mediaOpts)
   let ms = opts.limit * 1000
-  console.log(stream)
   let timeout = setTimeout(() => stream.stop(), ms)
   stream.pipe(bl((err, data) => {
     data = data.toString('base64')
@@ -56,7 +55,6 @@ const init = (elem, opts) => {
       opts.media = media
       let recorder = recorderView(opts, (err, recording) => {
         if (err) throw err
-        console.log('finished', recording)
         opts.writeData({recording}, (err, info) => {
           if (err) throw err
         })

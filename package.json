@@ -28,6 +28,7 @@
     "media-recorder-stream": "^2.1.1",
     "methodman": "^0.2.0",
     "moment": "^2.17.1",
+    "mosdef": "^0.2.0",
     "once": "^1.4.0",
     "response": "^0.18.0",
     "sodi": "^0.3.0",

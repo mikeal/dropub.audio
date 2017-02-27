@@ -35,7 +35,6 @@ const progressSlider = opts => {
   opts.audio.addEventListener('durationchange', () => {
     let duration = opts.audio.duration
     if (duration === Infinity) return
-    console.log('Got duration.')
     slider.max = duration
     slider.disabled = false
     opts.audio.ontimeupdate = () => {

@@ -12,6 +12,7 @@ const blurModal = require('blur-modal')
 const elementClass = require('element-class')
 const login = require('sodi-authority/component')
 const hash = require('hash.js')
+const mosdef = require('mosdef')
 
 const player = require('./dropub-player')
 const recorder = require('./dropub-recorder')
@@ -194,8 +195,7 @@ const init = (elem, opts) => {
 
   let onLog = log => {
     log.on('data', obj => {
-      Object.defineProperty(obj, 'token', { get: () => opts.token })
-      Object.defineProperty(obj, 'remove', { get: () => opts.remove })
+      mosdef(obj, ['token', 'remove'], key => opts[key])
       let elements = Array.prototype.slice.apply(container.children)
       let ts = obj.id.slice(obj.id.indexOf('@') + 1)
       let newPlayer = player(obj)
