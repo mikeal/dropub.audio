@@ -195,6 +195,7 @@ const init = (elem, opts) => {
 
   let onLog = log => {
     log.on('data', obj => {
+      if (document.getElementById(obj.id)) return
       mosdef(obj, ['token', 'remove'], key => opts[key])
       let elements = Array.prototype.slice.apply(container.children)
       let ts = obj.id.slice(obj.id.indexOf('@') + 1)
