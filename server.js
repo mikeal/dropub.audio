@@ -40,6 +40,12 @@ function validAuthority (signature) {
   return false
 }
 
+const extension = contentType => {
+  if (contentType.indexOf('/webm') !== -1) return 'webm'
+  if (contentType.indexOf('/ogg') !== -1) return 'ogg'
+  return null
+}
+
 function onWebsocketStream (stream) {
   let rpc = {}
   let databaseStream = jsonstream2.stringify()
@@ -112,7 +118,9 @@ function onWebsocketStream (stream) {
         doc.authorities[0].message.publicKey === doc.publicKey
       ) {
       doc._id = `${room}@${(new Date()).toISOString()}`
-      doc._attachments = {recording: doc.recording}
+      let key = `recording.${extension(doc.message.recording.content_type)}`
+      doc._attachments = {}
+      doc._attachments[key] = doc.recording
       delete doc.recording
       storage.db.post(doc, cb)
     } else {

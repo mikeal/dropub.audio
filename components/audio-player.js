@@ -82,7 +82,7 @@ const muteButton = opts => {
 const download = opts => {
   let button = bel`
   <download-button>
-    <a href="${opts.audio.src}" download="recording">
+    <a href="${opts.audio.src}" download>
     </a>
   </download-button>`
   button.querySelector('a').innerHTML = emojione.toImage('⬇️️')

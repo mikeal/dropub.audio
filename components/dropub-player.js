@@ -13,7 +13,8 @@ const e = encodeURIComponent
 const getWaudio = opts => {
   let audio = new Audio()
   window.audio = audio
-  audio.src = `${base}${e(opts.id)}/recording`
+  let filename = Object.keys(opts.doc.files)[0]
+  audio.src = `${base}${e(opts.id)}/${filename}`
   let elem = audioComponent({audio})
   audio.preload = 'auto'
   return elem

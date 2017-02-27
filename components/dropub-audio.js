@@ -174,6 +174,7 @@ const init = (elem, opts) => {
           ) {
           let user = obj.authorities[0].message.user
           let doc = obj.message
+          doc.files = obj._attachments
           log.emit('data', {user, doc, id: obj._id})
         }
       })
