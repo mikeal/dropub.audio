@@ -27,7 +27,7 @@ ${initRecorder}
   @keyframes fillup {
     to { stroke-dasharray: 158 158; }
   }
-  svg.recording-animation {
+  dropub-recorder svg.recording-animation {
     cursor: pointer;
     transform: rotate(-90deg);
   }
@@ -79,7 +79,7 @@ ${init}
   circle.record {
     fill: yellowgreen;
   }
-  svg {
+  dropub-recorder svg {
     background: yellowgreen;
     border-radius: 50%;
     cursor: pointer;
