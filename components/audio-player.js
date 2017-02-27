@@ -2,6 +2,12 @@ const funky = require('funky')
 const bel = require('bel')
 const emojione = require('emojione')
 
+const leftPad = (str, length = 1) => `${'0'.repeat(length)}${str}`
+
+// This is a bug in emojione somewhere that has bad data at the
+// end of the string instead of a close bracket.
+const fix = str => `${str.slice(0, str.lastIndexOf('/'))}/>`
+
 const play = opts => {
   let button = bel`<play-button></play-button>`
   opts.play = () => {
@@ -12,7 +18,7 @@ const play = opts => {
   opts.pause = () => {
     opts.audio.pause()
     button.onclick = opts.play
-    button.innerHTML = emojione.toImage('▶️️')
+    button.innerHTML = fix(emojione.toImage('▶️️'))
   }
   opts.pause()
   return button
@@ -20,11 +26,11 @@ const play = opts => {
 
 const timeDisplay = opts => {
   let display = bel`<time-display></time-display>`
-  display.textContent = '0s'
+  display.textContent = leftPad('0s')
 
   opts.audio.addEventListener('timeupdate', () => {
     let currentTime = opts.audio.currentTime
-    display.textContent = Math.round(currentTime) + 's'
+    display.textContent = leftPad(`${Math.round(currentTime)}s`)
   })
   return display
 }
@@ -85,7 +91,7 @@ const download = opts => {
     <a href="${opts.audio.src}" download>
     </a>
   </download-button>`
-  button.querySelector('a').innerHTML = emojione.toImage('⬇️️')
+  button.querySelector('a').innerHTML = fix(emojione.toImage('⬇️️'))
   return button
 }
 
@@ -94,7 +100,7 @@ const init = (elem, opts) => {
   let slider = elem.querySelector('input.progress-slider')
   let display = elem.querySelector('time-display')
   opts.audio.onended = () => {
-    display.textContent = '0s'
+    display.textContent = leftPad('00s')
     opts.pause()
     slider.value = 0
     opts.audio.currentTime = 0
