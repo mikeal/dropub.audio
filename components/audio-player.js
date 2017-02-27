@@ -57,7 +57,7 @@ const volumeSlider = opts => {
   opts.enableVolume = () => { slider.disabled = false }
   opts.disableVolume = () => { slider.disabled = true }
   slider.oninput = () => {
-    opts.audio.currentTime = slider.value
+    opts.audio.volume = slider.value
   }
   return slider
 }
