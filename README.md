@@ -1,5 +1,7 @@
 # Dropub Audio
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mikeal/dropub.audio.svg)](https://greenkeeper.io/)
+
 Web based audio drops.
 
 ## Development
